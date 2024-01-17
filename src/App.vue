@@ -19,7 +19,7 @@
     ></the-child>
   </div>
 </template>
-
+<!-- 
 <script>
 import TheChild from './components/TheChild.vue';
 
@@ -38,27 +38,16 @@ export default {
     },
   },
 }
-</script>
-
-<!-- Option API -->
-<!-- <script>
-import TheChild from './components/TheChild.vue';
-
-export default {
-  components: {
-    TheChild,
-  },
-  data() {
-    return {
-      parentData: '',
-    };
-  },
-  methods: {
-    receiveDataFromChild(DataFromChild) {
-      this.parentData = DataFromChild;
-    },
-  },
-} -->
-<!-- </script> -->
+</script> -->
 
 <!-- Composition API NEW -->
+<script setup>
+import { ref } from 'vue';
+import TheChild from './components/TheChild.vue';
+
+const parentData = ref('');
+
+const receiveDataFromChild = (dataFromChild) => {
+  parentData.value = dataFromChild;
+};
+</script>
