@@ -10,7 +10,7 @@
 </template>
 
 <!-- Option API -->
-<script>
+<!-- <script>
 import TheChild from './components/TheChild.vue';
 
 export default {
@@ -28,5 +28,15 @@ export default {
     },
   },
 }
-</script>
+</script> -->
 <!-- Composition API NEW -->
+<script setup>
+import { ref } from 'vue';
+import TheChild from './components/TheChild.vue';
+
+const parentData = ref('');
+
+const receiveDataFromChild = (dataFromChild) => {
+  parentData.value = dataFromChild;
+};
+</script>

@@ -8,7 +8,7 @@
 
 
 <!-- Option API -->
-<script>
+<!-- <script>
 export default {
   props:['dataFromParent'],
   emits:['child-event'],
@@ -24,6 +24,21 @@ export default {
    },
   },
 }
-</script>
+</script> -->
 
 <!-- Composition API NEW -->
+<script setup>
+import { ref, defineProps, defineEmits} from 'vue';
+
+const props = defineProps(['dataFromParent']);
+const emits = defineEmits(['child-event']);
+
+const childData = ref('子が持っているデータですよ');
+
+const sendDataToParent = () => {
+  emits('child-event', childData.value)
+};
+
+
+
+</script>
